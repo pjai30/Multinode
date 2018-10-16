@@ -3,10 +3,11 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-version: '2'
+version: '3.3'
 
 networks:
   basic:
+
 
 
 services:
@@ -24,6 +25,8 @@ services:
     command: sh -c 'fabric-ca-server start -b admin:adminpw'
     volumes:
       - ./crypto-config/peerOrganizations/org1.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
+    extra_hosts:
+      - "peer1.org1.example.com:192.168.1.6"
     container_name: ca.example.com
     networks:
       - basic
@@ -54,7 +57,9 @@ services:
         - ./crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/:/etc/hyperledger/msp/peerOrg1
         #- ./production:/var/hyperledger/production
     networks:
-      - basic
+      basic:
+       aliases:
+        - orderer.example.com
 
 
 #-e ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block 
@@ -129,7 +134,9 @@ services:
       #- orderer.grasim.com
       - couchdb0
     networks:
-      - basic
+      basic:
+       aliases:
+        - peer0.org1.example.com
 
 
   cli:

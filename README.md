@@ -1,4 +1,4 @@
 # Multinode
 
-1. fabcar/startFabric.sh
-2. basic-netowrk/joinPeerToChannel.sh
+1. Machine1 - fabcar/startFabric.sh
+2. Machine2 - basic-netowrk/joinPeerToChannel.sh

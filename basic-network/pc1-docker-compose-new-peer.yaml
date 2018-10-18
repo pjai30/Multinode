@@ -120,7 +120,7 @@ services:
       - CORE_PEER_GOSSIP_ORGLEADER=true 
     volumes:
       - /var/run/:/host/var/run/
-      #s- ./production/abg-peer1:/var/hyperledger/production
+
       - ./crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp:/etc/hyperledger/msp/peer
       - ./crypto-config/peerOrganizations/org1.example.com/users:/etc/hyperledger/msp/users
       - ./config:/etc/hyperledger/configtx

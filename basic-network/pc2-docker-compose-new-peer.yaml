@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-version: '3.3'
+version: '2'
 
 networks:
   basic:
@@ -65,7 +65,7 @@ services:
       - CORE_PEER_TLS_ENABLED=false
     volumes:
       - /var/run/:/host/var/run/
-      #s- ./production/abg-peer1:/var/hyperledger/production
+      
       - ./crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/msp:/etc/hyperledger/msp/peer
       - ./crypto-config/peerOrganizations/org1.example.com/users:/etc/hyperledger/msp/users
       - ./config:/etc/hyperledger/configtx
